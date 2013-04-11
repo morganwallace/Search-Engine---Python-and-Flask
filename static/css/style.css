@@ -45,7 +45,7 @@ a:hover{
 }
 
 li {
-	list-style: none;
+	
 }
 
 body {
@@ -91,5 +91,7 @@ body {
 #footer h5{
 	text-align: center;
 }
-
+#footer{
+	height:30
+}
 

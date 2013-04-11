@@ -7,17 +7,17 @@ app = Flask(__name__)
 
 @app.route('/', methods=['GET','POST'])
 def index():
-	app.logger.debug("hit")
-	if request.method == 'POST':
-		app.logger.debug(request.form['search'])
-		a_variable = request.form['search']
-		return render_template('index.html', a_variable=a_variable)
+# 	app.logger.debug("hit")
 	if request.method == 'GET':
 		try:
 			results=search.get_results(request.args.get('search'))
-			a_variable = results[0]["hits"]
-		except: a_variable=""
-		return render_template('index.html', a_variable=a_variable)
+			a_variable = results
+			query="You searched for: "+request.args.get('search')
+			app.logger.debug(a_variable)
+		except: 
+			query=""
+			a_variable=''
+		return render_template('index.html', a_variable=a_variable, query=query)
 
    
 @app.errorhandler(404)

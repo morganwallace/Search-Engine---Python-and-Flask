@@ -13,8 +13,9 @@
     <!-- Font -->
     <link href='http://fonts.googleapis.com/css?family=Josefin+Sans:100,400' rel='stylesheet' type='text/css'>
     <!-- Scripts -->
+
+<!--     <script src="static/js/jquery-1.8.1.js"></script> -->
 <!--
-    <script src="js/jquery-1.8.1.js"></script>
     <script type="text/javascript" src="js/bootstrap.js"></script>
     <script src="d3.min.js" type="text/javascript"></script>
     <script type="text/javascript" src="js/script.js"></script>
@@ -28,7 +29,8 @@
 <div id='container'>
     <h1>Morgle</h1>
     <form method="get" action="/">
-    <input type="text" label='http get' name="search" placeholder="search">    
+    <input type="text" label='http get' name="search" placeholder="search"><p>Search ischool.berkeley.edu</p>
+    </form>    
 <!--
 	</form>
 	    <form method="post" action="/">
@@ -36,7 +38,16 @@
 	</form>
 	
 -->
-	<h3>{{ a_variable }}</h3>
+<h3 id='yoursearch'> {{query}}</h3>
+	<ol id='results'>
+		{% if a_variable %}
+		{% for item in a_variable %}
+        	<li><a href="{{ item['url'] }}">{{ item['title'] }}</a><br>{{ item['snippet'] }}</li>
+        {% endfor %}
+        {% else %}
+        	There were no results
+        {% endif %}
+	</ol>	
 </div>
 </body>
 
