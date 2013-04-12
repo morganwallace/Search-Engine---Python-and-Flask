@@ -4,7 +4,6 @@ from flask import request
 import search
 
 app = Flask(__name__)
-
 @app.route('/', methods=['GET','POST'])
 def index():
 # 	app.logger.debug("hit")

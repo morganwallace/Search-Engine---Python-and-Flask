@@ -66,8 +66,8 @@ def get_results(query):
 	
 def main():
 	myResults = get_results("data")
-	for i in myResults:
-		print (i['hits'])
+# 	for i in myResults:
+# # 		print (i['hits'])
 
 	
 	
